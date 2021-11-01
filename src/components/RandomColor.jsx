@@ -5,25 +5,33 @@ class RandomColor extends Component {
     displayedColor: 'tan',
   };
 
-  onRandonFunction = (color) => {
+  getRandomColor() {
+    const color =
+      this.state.displayedColor[
+        Math.floor(Math.random() * this.state.colorList.length)
+      ];
+    return color;
+  }
+
+  onRandomChangeFunction = (color) => {
     this.setState({ backgroundColor: color });
   };
 
   render() {
-    const color = [
+    const colorList = [
       'black',
       'purple',
       'yellow',
       'teal',
       // 'https://i.dailymail.co.uk/i/pix/2016/03/18/15/324D202500000578-3498922-image-a-33_1458315465874.jpg',
     ];
-    const { displayedColor } = this.state;
+    const { color } = this.state;
     return (
       <>
         <h1>RandomColorLab</h1>
         <div
           style={{
-            backgroundColor: displayedColor,
+            backgroundColor: getRandomColor(colorList),
             height: 240,
             width: 240,
             marginTop: 8,
