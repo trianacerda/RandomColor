@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DisplayChange from './containers/DisplayChange';
 
 class RandomColor extends Component {
   state = {
@@ -6,10 +7,7 @@ class RandomColor extends Component {
   };
 
   getRandomColor() {
-    const color =
-      this.state.displayedColor[
-        Math.floor(Math.random() * this.state.colorList.length)
-      ];
+    this.state.displayedColor[Math.floor(Math.random() * colorList.length)];
     this.setState({ backgroundColor: displayedColor });
   }
 
@@ -25,19 +23,7 @@ class RandomColor extends Component {
       'teal',
       // 'https://i.dailymail.co.uk/i/pix/2016/03/18/15/324D202500000578-3498922-image-a-33_1458315465874.jpg',
     ];
-    return (
-      <>
-        <h1>Random-Color-Lab</h1>
-        <div
-          style={{
-            backgroundColor: displayedColor,
-            height: 810,
-            width: 810,
-            marginTop: 24,
-          }}
-        ></div>
-      </>
-    );
+    return <DisplayChange />;
   }
 }
 
